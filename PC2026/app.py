@@ -89,7 +89,7 @@ st.sidebar.divider()
 st.sidebar.subheader("🤖 Asistente IA")
 
 # Configuración del modelo
-model_name = st.sidebar.text_input("Modelo Ollama", value="gemma:2b", help="Asegúrate de tener este modelo en Ollama ejecutándose localmente.")
+model_name = st.sidebar.text_input("Modelo Ollama", value="gemma3:4b", help="Asegúrate de tener este modelo en Ollama ejecutándose localmente.")
 
 if "messages" not in st.session_state:
     st.session_state.messages = []
