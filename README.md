@@ -13,7 +13,7 @@ Este proyecto es un tablero de control interactivo diseñado para la gestión y 
 
 -   **Docker Desktop** (para ejecutar la aplicación aislada).
 -   **Ollama** (para el chatbot de IA). Debes tenerlo instalado y corriendo (`ollama serve`).
--   Modelo de IA recomendado: `gemma:2b` (o el que prefieras configurar).
+-   Modelo de IA recomendado: `gemma:3b` (o el que prefieras configurar).
 
 ## 📦 Instalación y Uso
 
@@ -49,7 +49,7 @@ Este proyecto es un tablero de control interactivo diseñado para la gestión y 
 
 En la barra lateral del dashboard, encontrarás la sección **"Asistente IA"**.
 -   Asegúrate de que Ollama esté corriendo en tu PC.
--   Ingresa el nombre de tu modelo local (ej: `gemma:2b`, `llama3`, `mistral`) en el campo de configuración.
+-   Ingresa el nombre de tu modelo local (ej: `gemma3b`, `llama3`, `mistral`) en el campo de configuración.
 -   ¡Pregunta lo que quieras sobre tus datos!
 
 ## 📂 Estructura del Proyecto
