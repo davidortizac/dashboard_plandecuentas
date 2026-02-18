@@ -1,0 +1,395 @@
+cliente,zona,sector,ejecutivo,tipo_cuenta,nivel_relacion,valoracion_relacion,estrategia,pasos_a_seguir
+BBVA,CENTRO,FINANCIERO,KAROL LOPEZ,A,ALTO,POSITIVA,,
+FALABELLA - BANCO,,FINANCIERO,KAROL LOPEZ,A,ALTO,POSITIVA,,
+FALABELLA - RETAIL,,CORPORATIVO,KAROL LOPEZ,A,ALTO,POSITIVA,,
+UNIVERSIDAD EXTERNADO DE COLOMBIA,CENTRO,EDUCACION,SOFIA PENALOSA,A,ALTO,POSITIVA,"Solucionar su necesidad de reportes gerenciales de ciberseguridad y gestion de riesgo
+
+Insistir en la renovacion del WAF este año y en la adquisicion de una herramienta de analisis de Vulnerabilidades propia",Hacer presentacion de Tenable o vicarius (ya se presupuestaron 26K para 2026 para este proyecto)
+COOPIDROGAS,CENTRO,RETAIL,SOFIA PENALOSA,A,ALTO,POSITIVA,"Rnovacion del contrato de SOC por 2 años con ing residente para operar y dar soporte a las herramientas Fortinet con el area de Riesgos
+
+SD WAN proyecto de Infraestructura/conectividad - proximo a dimensionamiento
+
+Ethical Hacking - participar en la invitacioneste año
+
+Revisar con Riesgos la seguridad para asociados (2500 drogistas)","Retomar Observabilidad - PoC
+
+Seguridad en Bases de datos
+
+Retomar Sealpath - volver a cotizar, la PoC ya la terminamos
+
+Presentar Estrategia de seguridad de datos"
+ENFRAGEN,CENTRO,ENERGIA,SOFIA PENALOSA,A,ALTO,POSITIVA,"Renovacion tecnologica de LAN en plantas Colombia y Panama
+
+Sensibilizacion de usuarios y directivos
+
+Software de gestion de riesgos para el area de Ciberseguridad","Renovacion de PAM - caso de exito
+
+Sacar las certificaciones de experiencia de los proyectos OT"
+EFECTY,,,,,,,,
+PERMODA LTDA,CENTRO,TEXTIL,CAROLINA VALERO,A,ALTO,POSITIVA,"Estrategia Financiera Inteligente
+Con solo 500 millones:
+Priorizar equipos críticos (core / data center / tiendas principales).
+Diferir renovación de equipos secundarios si es viable.
+Evaluar:
+Leasing - Financiamiento 
+Renovación por etapas (2025–2026)
+
+Proyecto OT como Oportunidad Estratégica
+El proyecto OT no debe competir con el firewall debe reforzarlo.","Presentar propuesta agresiva inicial (ancla alta con descuento visible).
+Ofrecer escenario A / B / C:
+A: Renovación completa
+B: Renovación crítica + OT fase 1
+C: Esquema financiado 
+
+Amarrar OT como proyecto estratégico 2026.
+
+Presentar una propuesta Integral que se denomine: ""Programa integral de resiliencia operativa 2025–2026""
+Donde se incluyan los proyectos de Renovacion, OT y Observabilidad."
+INTERRAPIDISIMO,CENTRO,MENSAJERIA Y ENVIOS,CAROLINA VALERO,A,ALTO,POSITIVA,Estrategia Comercial Servicios de Ciberseguridad.,Se esta buscando reunion para proponerle al cliente visita al SOC.
+VANTI,CENTRO,ENERGÉTICO,CAROLINA VALERO,A,MEDIO,POSITIVA,"Estrategia para retomar el cliente y fortalecer el relacionamiento: 
+Reactivar la relación (recuperar posicionamiento).
+Entender nuevas prioridades del negocio.
+Identificar proyectos estratégicos 2026.","Antes de Retomar:
+Revisar noticias recientes (proyectos, regulación, expansión).
+
+Identificar líderes clave (TI, Seguridad, Riesgos, Operaciones).
+
+Analizar cambios regulatorios del sector energético."
+FRONTERA ENERGY,CENTRO,ENERGÉTICO,CAROLINA VALERO,A,ALTO,POSITIVA,,
+AECSA - ABOGADOS ESPECIALIZADOS EN COBRANZAS S.A,CENTRO,BPO,CAROLINA VALERO,A,ALTO,POSITIVA,,"Identificar líderes clave (TI, Seguridad, Riesgos, Operaciones)."
+CYC SERVICES,CENTRO,BPO,CAROLINA VALERO,A,ALTO,POSITIVA,,
+AUTOMÁS,CENTRO,AUTOMOTRIZ,CAROLINA VALERO,B,ALTO,POSITIVA,,Analizar cambios regulatorios del sector energético.
+AUTOMOTORES TOYOTA,CENTRO,AUTOMOTRIZ,CAROLINA VALERO,B,ALTO,POSITIVA,,
+COLGAS,CENTRO,ENERGETICO,CAROLINA VALERO,B,MEDIO,POSITIVA,,
+ITALCOL,CENTRO,AGRONDUSTRIAL,CAROLINA VALERO,B,ALTO,POSITIVA,,
+ARTURO CALLE,CENTRO,TEXTIL,CAROLINA VALERO,C,ALTO,POSITIVA,,
+SYAC - SISTEMAS Y ASESORÍAS DE COLOMBIA S.A.S,CENTRO,SERVICIOS,CAROLINA VALERO,C,ALTO,POSITIVA,,
+DECATHLON,CENTRO,RETAIL,CAROLINA VALERO,C,ALTO,POSITIVA,,
+CAJA DE COMPENSACIÓN FAMILIAR CAFAM,CENTRO,COOPERATIVA,MARCELA RODRÍGUEZ,A,ALTO,POSITIVA,"Revisar proyecto de SASE - Netskope
+Revisar infraestructura con Carlos Charcas para revisar Nutanix
+Revisar Observabilidad
+Presentarle estrategia de seguridad de datos a Alida Brigith
+Presentarle Novasec a Alida Brigith","Monitoreo de marca AXUR: posicionar los servicios que complementen el servicio actual del cliente ya que Telefonica no cubre todo lo que ellos encesitan, por ejemplo monitoreo de logos.
+PAM: Retomar la sesion con Senhasegura
+Ethical Hacking: Seguimiento con Alida Brigith"
+HOCOL S.A.,CENTRO,ENERGIA,MARCELA RODRÍGUEZ,B,MEDIO,POSITIVA,,
+PRODUCTOS NATURALES DE LA SABANA S.A. ALQUERIA,CENTRO,INDUSTRIA,MARCELA RODRÍGUEZ,A,MEDIO,POSITIVA,,
+TERMONORTE,CENTRO,ENERGIA,MARCELA RODRÍGUEZ,B,MEDIO,POSITIVA,,
+UNIVERSIDAD DE CIENCIAS APLICADAS Y AMBIENTALES UDCA,CENTRO,EDUCACION,MARCELA RODRÍGUEZ,B,ALTO,POSITIVA,,
+PRIMAX COLOMBIA,CENTRO,INDUSTRIA,MARCELA RODRÍGUEZ,A,MEDIO,POSITIVA,,
+PRODUCTOS RAMO S.A.S.,CENTRO,INDUSTRIA,MARCELA RODRÍGUEZ,B,MEDIO,POSITIVA,,
+CLUB LA PRADERA DE POTOSI,CENTRO,ENTRETENIMIENTO,MARCELA RODRÍGUEZ,B,MEDIO,POSITIVA,,
+C.I. ACEPALMA S.A.,CENTRO,INDUSTRIA,MARCELA RODRÍGUEZ,B,ALTO,POSITIVA,,
+CORPORACIÓN MALOKA,CENTRO,ENTRETENIMIENTO,MARCELA RODRÍGUEZ,B,MEDIO,POSITIVA,"Tienen un dolor latente con Ley de datos personales: inventarios de bases de datos, dataprotect. Va a cambiar la ley. Bases de datos de informacion de datos personales.
+Seguridad de datos por la prioridad de gestion documental de 2026
+
+Participar en el Ethical Hacking de 2026 (Van a incluir switches y servidores)
+
+Revisar Lumu y monitoreo de marca AXUR
+
+Revisar la vida util de la NAS actual (desde 2019)","Revisar Kriptos si soluciona lo de proteccion de datos personales
+Dimensionar los Switches"
+AGROSAVIA,CENTRO,AGRICOLA,CESAR LOPEZ,A,MEDIO,POSITIVA,"Cliente potencial para Netskope, Darktrace, kriptos, Axur, PAM, Fortimail
+
+Explorar Nutanix",Reunion presencial la semana del 3 de Febrero para continuar la arquitectura por capas
+CLINICA SHAIO,CENTRO,SALUD,CESAR LOPEZ,A,MEDIO,POSITIVA,Cliente potencial para Netskope,Seguimiento a mediados de Marzo
+MEDILASER,CENTRO,SALUD,CESAR LOPEZ,A,MEDIO,POSITIVA,,
+CLINICA COUNTRY,CENTRO,SALUD,CESAR LOPEZ,B,MEDIO,POSITIVA,,Llamar la segunda semana de febrero para conseguir cita de presentacion portafolio
+ORGANIZACION CARDENAS,CENTRO,ALIMENTOS,CESAR LOPEZ,B,BAJO,,,Cita concretada para el viernes 13 de febrero
+COTELCO,CENTRO,TURISMO,CESAR LOPEZ,B,BAJO,,,
+"PARQUE TEMATICO 
+HACIENDA NAPOLES",CENTRO,ENTRETENIMIENTO,CESAR LOPEZ,B,MEDIO,,Cliente potencial para monitoreo de marca con Axur y Fortimail,"Presentar oferta de 
+Fortimail
+Monitoreo de Marca
+Ethical Hacking"
+IKE ASISTENCIA,CENTRO,ASEGURADORA DE ASISTENCIA,ESMERALDA SANCHEZ,A,ALTO,POSITIVA,,"*Se programó una reunión con el cliente para el 17 de febrero con el fin de explicar Lumu, ya que, tras una de nuestras charlas, mostraron gran interés en inteligencia de amenazas"
+GRANH THORTHON,CENTRO,SERVICIOS PROFESIONALES,ESMERALDA SANCHEZ,B,MEDIO,NEUTRAL,"Siguen la NIST 2 desde casa matriz, quieren certificarse en ISO 27001.
+
+FOCO: Estrategia de seguridad de datos
+
+Retomar LUMU","*Esta es una empresa nueva a la cual queremos llegar , ya conocen la arquitectura , tenemos reuniòn el miercoles 18 de Febrero presencial, monitoreo de marca , Ethical hacking ,"
+LA ASCENSIÒN,CENTRO,ASEGURADORA DE GRUPOS EXEQUIALES,ESMERALDA SANCHEZ,B,BAJO,NEUTRAL,,"*Se esta realizando la cotizaciòn de sdwan sase con fortinet, ya pasamos propuesta, estamos pendiente de sustentaciòn el dia 17 de febrero 10 am."
+CREDIFLORES,CENTRO,FINANCIERO  SECTOR DE MICROFINANZAS Y CREDITO ESPECIALIZADO.,ESMERALDA SANCHEZ,B,MEDIO,POSITIVA,,*El cliente adquirio Lumu a 3 años y se programo visita presencial 27 de febrero   para mostrarles la arquitectura.
+ACERIAS PAZ DEL RIO,,SECTOR INDUSTRIAL,ESMERALDA SANCHEZ,B,ALTO,POSITIVA,,"*se ha realizado seguimiento con el cliente ya que esta revisando una renovaciòn de licenciamiento de firewall ,se esta programando visita presencial para el 25 de Febrero y contarles sobre la arquitectura"
+COQUECOL,,SECTOR INDUSTRIAL,ESMERALDA SANCHEZ,B,MEDIO,POSITIVA,,*El cliente esta revisando la renovaciòn de kaspersky y licenciamiento con Vivi Pinzon.
+COMPENSAR,CENTRO,FINANCIERO,JANETH TELLEZ,A,ALTO,POSITIVA,,
+SEGUROS MUNDIAL,CENTRO,FINANCIERO,JANETH TELLEZ,A,ALTO,POSITIVA,,
+REDEBAN,CENTRO,FINANCIERO,JANETH TELLEZ,A,ALTO,POSITIVA,,
+NALSANI S.A. TOTTO,CENTRO,FINANCIERO,JANETH TELLEZ,A,ALTO,POSITIVA,,
+BANCO COOPCENTRAL,CENTRO,FINANCIERO,JANETH TELLEZ,A,ALTO,POSITIVA,,
+LULOBANK,CENTRO,FINANCIERO,PAOLA PIRABAN,B,MEDIO,POSITIVA,,
+BANCO ITAU,CENTRO,FINANCIERO,PAOLA PIRABAN,A,MEDIO,POSITIVA,,
+DROGUERIAS Y FARMACIAS CRUZ VERDE,CENTRO,RETAIL,PAOLA PIRABAN,A,MEDIO,POSITIVA,,
+CHEVYPLAN,CENTRO,FINANCIERO,PAOLA PIRABAN,A,MEDIO,POSITIVA,,
+CREDICORP,CENTRO,FINANCIERO,,B,BAJO,POSITIVA,,
+BANESCO,CENTRO,FINANCIERO,,A,MEDIO,POSITIVA,,
+CARDIF,CENTRO,FINANCIERO,,B,BAJO,NEUTRAL,,
+BAN100,CENTRO,FINANCIERO,,B,BAJO,POSITIVA,,
+BANCO PICHINCHA,CENTRO,FINANCIERO,,B,NINGUNO,NEUTRAL,,
+DIRECCIÓN DE INTELIGENCIA POLICIAL- DIPOL,,GOBIERNO-FUERZAS MILITARES,PAULA LOAIZA,A,ALTO,POSITIVA,,
+"UNIDAD ADMINISTRATIVA ESPECIAL AGENCIA DEL INSPECTOR GENERAL DE TRIBUTOS, RENTAS- ITRC.",,GOBIERNO,PAULA LOAIZA,A,ALTO,POSITIVA,,
+UNIDAD DE INFORMACION Y ANALISIS FINANCIERO UIAF,,,,A,,,,
+ATENEA - AGENCIA DISTRITAL PARA LA EDUCACION SUPERIOR LA CIENCIA Y LA TECNOLOGIA,,,,A,,,,
+DIRECCIÓN GENERAL MARÍTIMA NACIONAL - DIMAR,,,,A,,,,
+INSTITUTO NACIONAL DE METROLOGÍA,CENTRO,GOBIERNO,MARÍA PAULA TOVAR,A,ALTO,POSITIVA,,
+INSTITUTO COLOMBIANO DE CREDITO EDUCATIVO - IDEP,CENTRO,GOBIERNO,MARÍA PAULA TOVAR,A,ALTO,POSITIVA,,
+"GRUPO AUNA (CLÍNICA LAS AMÉRICAS, CLÍNICA DEL SUR, CLÍNICA PORTOAZUL)",NORTE,CORPORATIVO - SALUD,,A,ALTO,POSITIVA,Consultiva y basada en datos,
+XM SA ESP,NORTE,GOBIERNO - ENERGIA,,A,MEDIO,POSITIVA,Consultiva y basada en datos,3 de Feb. Seguridad por capas v2 y recopilar toda la información posible.
+INSTITUCIÓN UNIVERSITARIA DE ENVIGADO,NORTE,GOBIERNO - EDUCACIÓN,,A,ALTO,POSITIVA,Consultiva y basada en datos,
+ISA INTERCOLOMBIA,NORTE,GOBIERNO - ENERGIA,,A,MEDIO,POSITIVA,Consultiva y basada en datos,
+GRUPO REDITOS - UX TECHNOLOGY - SURED,NORTE,CORPORATIVO - FINTECH,,A,MEDIO,POSITIVA,Consultiva y basada en datos,
+ACI MEDELLÍN,NORTE,GOBIERNO,NATALIA MOLINA,B,,,,
+AFINIA CARIBEMAR DE LA COSTA S.A.S. E.S.P.,NORTE,GOBIERNO,NATALIA MOLINA,B,,,,
+ALCALDÍA DE MEDELLÍN,NORTE,GOBIERNO,NATALIA MOLINA,A,,,,
+ALCALDIA DE RIONEGRO ANTIOQUIA,NORTE,GOBIERNO,NATALIA MOLINA,B,,,,
+GRUPO EXITO,NORTE,DISTRIBUCIÓN Y COMERCIO,NATALIA MOLINA,B,,,,
+AREA METROPOLITANA DEL VALLE DE ABURRA,NORTE,GOBIERNO,NATALIA MOLINA,B,,,,
+AUTOAMERICA SA,NORTE,DISTRIBUCIÓN Y COMERCIO,NATALIA MOLINA,A,,,,
+AUTOMAX SAS,NORTE,DISTRIBUCIÓN Y COMERCIO,NATALIA MOLINA,A,,,,
+AUTOMOTORA SAS,NORTE,DISTRIBUCIÓN Y COMERCIO,NATALIA MOLINA,A,,,,
+CÁMARA DE COMERCIO DE MEDELLÍN,NORTE,CONSULTORÍA EMPRESARIAL Y DE GESTIÓN,NATALIA MOLINA,B,,,,
+CENTRO CARDIOVASCULAR SOMER INCARE,NORTE,,NATALIA MOLINA,B,,,,
+CLÍNICA SOMER,NORTE,,NATALIA MOLINA,B,,,,
+COLTEFINANCIERA S.A.,NORTE,,NATALIA MOLINA,A,,,,
+COMFAMA CAJA DE COMP. FAMILIAR DE ANTIOQUIA,NORTE,FINANCIERA,NATALIA MOLINA,B,,,,
+COMFENALCO ANTIOQUIA,NORTE,FINANCIERA,NATALIA MOLINA,B,,,,
+CONEXIÓN Y SERVICIO - CONNSER,NORTE,SERVICIOS,NATALIA MOLINA,A,,,,
+CONSTRUCTORA CONCONCRETO S.A.,NORTE,CONSTRUCCION,NATALIA MOLINA,B,,,,
+CONTEGRAL S.A.S. - PRODUCTORA DE ALIMENTOS CONCENTRADOS PARA ANIMALES,NORTE,INDUSTRIA Y COMERCIO,NATALIA MOLINA,B,,,,
+CONTRALORÍA GENERAL DE ANTIOQUIA,NORTE,GOBIERNO,NATALIA MOLINA,B,,,,
+"COOPERATIVA BELEN, AHORRO Y CRÉDITO - COBELEN",NORTE,FINANCIERA,NATALIA MOLINA,A,,,,
+COOPERATIVA FINANCIERA COTRAFA,NORTE,FINANCIERA,NATALIA MOLINA,C,,,,
+COORDINADORA MERCANTIL,NORTE,VIAJES Y TRANSPORTES,NATALIA MOLINA,B,,,,
+CORPORACION RUTAN MEDELLIN,NORTE,GOBIERNO,NATALIA MOLINA,B,,,,
+CUEROS VÉLEZ S.A.S,NORTE,INDUSTRIA Y COMERCIO,NATALIA MOLINA,B,,,,
+ENVIASEO,NORTE,GOBIERNO,NATALIA MOLINA,B,,,,
+FABRICA DE LICORES Y ALCOHOLES DE ANTIOQUIA,NORTE,GOBIERNO,NATALIA MOLINA,B,,,,
+FUNDACIÓN HOSPITAL SAN VICENTE DE PAUL RIONEGRO,NORTE,GOBIERNO,NATALIA MOLINA,B,,,,
+FUNDACIÓN HOSPITALARIA SAN VICENTE DE PAÚL,NORTE,GOBIERNO,NATALIA MOLINA,B,,,,
+GOBERNACION DE ANTIOQUIA,NORTE,GOBIERNO,NATALIA MOLINA,B,,,,
+GRUPO AGENCIAUTO S.A.,NORTE,,NATALIA MOLINA,A,,,,
+GRUPO EXITO,NORTE,,NATALIA MOLINA,B,,,,
+GRUPO ORBIS,NORTE,,NATALIA MOLINA,B,,,,
+GRUPO UMA S.A.S,NORTE,,NATALIA MOLINA,B,,,,
+GRUPO URIBE,NORTE,,NATALIA MOLINA,B,,,,
+HOSPITAL MANUEL URIBE ANGEL,NORTE,GOBIERNO,NATALIA MOLINA,B,,,,
+IDEA INSTITUTO PARA EL DESARROLLO DE ANTIOQUIA,NORTE,GOBIERNO,NATALIA MOLINA,A,,,,
+INDUSTRIAS HACEB,NORTE,,NATALIA MOLINA,B,,,,
+INSTITUCION UNIVERSITARIA PASCUAL BRAVO,NORTE,GOBIERNO,NATALIA MOLINA,B,,,,
+INSTITUCIÓN UNIVERSITARIA SALAZAR Y HERRERA,NORTE,,NATALIA MOLINA,A,,,,
+INSTITUTO DE DEPORTES Y RECREACION DE MEDELLIN INDER,NORTE,GOBIERNO,NATALIA MOLINA,B,,,,
+INSTITUTO FINANCIERO PARA EL DESARROLLO DEL HUILA - INFIHUILA,NORTE,GOBIERNO,NATALIA MOLINA,B,,,,
+INTEGRAL S.A – SOLUCIONES INTEGRALES DE INGENIERÍA,NORTE,,NATALIA MOLINA,B,,,,
+LOTERÍA DE MEDELLÍN,NORTE,GOBIERNO,NATALIA MOLINA,B,,,,
+METRO DE MEDELLÍN LTDA,NORTE,GOBIERNO,NATALIA MOLINA,B,,,,
+MUNICIPIO DE CALDAS ANTIOQUIA,NORTE,GOBIERNO,NATALIA MOLINA,B,,,,
+MUNICIPIO DE ENVIGADO,NORTE,GOBIERNO,NATALIA MOLINA,A,,,,
+MUNICIPIO DE ITAGÜÍ,NORTE,GOBIERNO,NATALIA MOLINA,B,,,,
+NOVAVENTA S.A.S,NORTE,,NATALIA MOLINA,B,,,,
+POSTOBON SA,NORTE,,NATALIA MOLINA,B,,,,
+PRODUCTOS FAMILIA S.A.,NORTE,,NATALIA MOLINA,B,,,,
+SERVICIOS NUTRESA SAS,NORTE,,NATALIA MOLINA,B,,,,
+SOBERANA SAS,NORTE,,NATALIA MOLINA,A,,,,
+SOCIA BPO S.A.S.,NORTE,,NATALIA MOLINA,A,,,,
+SOMOS MOVILIDAD RIONEGRO,NORTE,GOBIERNO,NATALIA MOLINA,B,,,,
+TECNOLÓGICO DE ANTIOQUIA INSTITUCIÓN UNIVERSITARIA,NORTE,GOBIERNO,NATALIA MOLINA,B,,,,
+TELEANTIOQUIA,NORTE,GOBIERNO,NATALIA MOLINA,B,,,,
+UNIVERSIDAD DE ANTIOQUIA,NORTE,GOBIERNO,NATALIA MOLINA,A,,,,
+UNIVERSIDAD DE MEDELLÍN,NORTE,,NATALIA MOLINA,B,,,,
+UNIVERSIDAD EAFIT,NORTE,,NATALIA MOLINA,B,,,,
+UNIVERSIDAD EIA,NORTE,,NATALIA MOLINA,B,,,,
+UNIVERSIDAD NACIONAL DE COLOMBIA MDE,NORTE,,NATALIA MOLINA,B,,,,
+UNIVERSIDAD PONTIFICIA BOLIVARIANA MEDELLIN,NORTE,,NATALIA MOLINA,B,,,,
+VALOR + S.A.S,NORTE,GOBIERNO,NATALIA MOLINA,A,,,,
+GRUPO CIBEST,NORTE,FINANCIERO,TREIZY IBAÑEZ,A,ALTO,POSITIVA,"Profundización
+
+* Posicionamiento en área de TI (servicios observabilidad)
+* Fortalecer relacionamiento con abastecimiento (compradores TI)
+* Ampliar nuestro portafolio de soluciones en ciberseguridad (Kryptos, Anka, SOC, etc)
+* Afianzar relación con los fabricantes posicionados en el Banco","Área de TI
+* Reunión con stakeholder observabilidad, proponer casos de uso
+* Reunión con Jose David Monsalve - presentación portafolio Gamma/ enfoque TI y servicios 
+* Reunión con Esteban Bustamente (Director cadena de abastecimiento)
+
+Área de Ciberseguridad
+* Continuidad foco proyecto SSE + UZTNA
+*  Definir fecha inicio PoC Kryptos - Daniel Pérez
+* Reunión con Juan Gabriel Ospina (líder criptografía cuántica - involcurar a Anka, retomar)
+* Reunión nuevamente con Jose Rojo, charla con su equipo para fortalecer conocimiento de nuestros servicios de SOC"
+RENTING COLOMBIA,NORTE,FINANCIERO,TREIZY IBAÑEZ,A,ALTO,POSITIVA,"Profundización
+
+* Posicionamiento en área de TI 
+* Desarrollar relacionamiento con áreas de compras, financiero, riesgos
+* Cross-selling: 
+   - Fortalecer posicionamiento soluciones complementarias  
+     de Fortinet.
+   - Posicionar otras soluciones en ciberseguridad","Área Ciberseguridad:
+* Ejecutar actividades valor agregado proyecto cerrado diciembre:
+- Revisión arquitectura seguridad (workshop con David Ortiz)
+- Charla protección de datoa con Claudia (Kaskey)
+
+* Reunión con Diego Tamayo 
+* Programar charla de seguridad de datos"
+COMPAÑÍA DE FINANCIAMIENTO TUYA,NORTE,FINANCIERO,TREIZY IBAÑEZ,A,ALTO,POSITIVA,"Profundización
+
+* Cross-Sellimg:
+  - Posicionar nuevas soluciones de ciberseguridad (Kryptos, Anka, SealtPaht
+- Posicionamiento en área de TI
+
+* Fortalecer relacionamiento (abastecimiento, financiero, mercadeo)","* Reactivar servicios Gamma- Netskope (concretar continuidad servicio)
+* Programar charla seguridad para la IA Netskope (Edwin)
+* Retomar revisión B-WAN Netskope
+* Programar charla de seguridad de los datos
+* Charla SealthPath
+* Reunión con Andrés Gallego (líder abastecimiento)
+* Conseguir espacio con Carlos (Gte TI)"
+"SUN VALLEY INVESTMENT (COLOMBIAN MINT, OCCELOTE,",NORTE,MINERO,TREIZY IBAÑEZ,A,ALTO,POSITIVA,,
+INVESA,NORTE,AGROQUÍMICO,TREIZY IBAÑEZ,A,,,,
+KREDIT S.A.S.,NORTE,FINANCIERO,TREIZY IBAÑEZ,A,,,,
+LEONISA,NORTE,MANUFACTURA - TEXTIL Y CONFECCIÓN,TREIZY IBAÑEZ,A,,,,
+CELSIA INTERNET,NORTE,,TREIZY IBAÑEZ,A,,,,
+COMBARRANQUILLA,NORTE,CAJAS DE COMPENSACIÓN,TREIZY IBAÑEZ,A,,,,
+"SUMMA SERVICIOS COMPARTIDOS (GRUPO ARGOS, CELSIA, ODINSA)",NORTE,,,B,,,,
+GRUPO DE INVERSIONES SURAMERICANA,NORTE,FINANCIERO,,B,,,,
+PUNTOS COLOMBIA,NORTE,SERVICOS,TREIZY IBAÑEZ,B,,,,
+ANTIOQUEÑA DE PORCINOS,NORTE,AGROINDUSTRIAL,MIRYAM ZULUGA,A,ALTO,POSITIVA,"Se esta trabajando esta cuenta en conjunto con Fortinet, para todas las solciones de Ciberseguridad","Se tiene pendiente.
+- Sesión para retomar el estatus de las oportuniades que se tienen actualmente enuna semana.
+- Espera de confirmación para levantamiento de información en planta y cotizar OT.
+-Pendiente retomar observabilidd (SAP).
+- Agenda de Ciberseguridad por capas para el resto del equipo de POrcicarnes ."
+ANDI,NORTE,SERVICIOS,MIRYAM ZULUGA,A,ALTO,POSITIVA,"Se viene trabajando en conjunto esta cuenta con Juan Camilo Ospina de Fortinet, se esta trabajando con ellos varias soluciones .","- Continuar con La pOC de eDR.
+- Seguimieto a todas las oportunidades actuelmente con oferta.
+- Buscar estrategia de Cnapp , para la nueva modalidad que quien implementar an el gremio emoresaria- pendiente sesión con Jeison.
+- Pediente Estrategia de seguridad de datos."
+CLINICA CES,NORTE,SALUD,MIRYAM ZULUGA,A,ALTO,POSITIVA,,"Se viene trabajando en distintas soluciones de Cibersguridad con Fortinet.
+-"
+UNVERSIDAD CES,NORTE,EDUCACIÓN,MIRYAM ZULUGA,A,ALTO,POSITIVA,,
+ARIS MINING,NORTE,MINERO,MIRYAM ZULUGA,B,MEDIO,NEUTRAL,"TRabajar de la mano de Fortinetàra las diferentes soluciones de OT , entre otras","- Continuar con el proceso de la POC de Sealpath.
+- Sesion de seguridad deOT- Nestor en coordinación con Fortinet.
+-Seguridad por capas,para mes de febrero - x conformr agenda"
+SINERGIA SOLIDARIA,NORTE,SOLIDARIO (COOOPERATIVAS),MIRYAM ZULUGA,A,ALTO,POSITIVA,"_ Se busca revisar con Fortinet , y algunos aliados como novasec hasta donde podemos tener algunas soluciones  a gran escala para ofrecer a todas las cooperativas que Sinergia tiene l frente.",- Agenda pediente con la Gerencia de Sinergia y las fábricas.
+MRKETING PERSONAL,NORTE,MANUFACTURA,MIRYAM ZULUGA,C,MEDIO,POSITIVA,,
+COLDEPLAST S.A.S.,NORTE,,,,,,,
+UNIVERSIDAD CES,NORTE,,,,,,,
+ENERGIZANDO,NORTE,,,,,,,
+CASA BRITÁNICA,NORTE,,,,,,,
+YOKOMOTOR,NORTE,,,,,,,
+EMI,NORTE,,,,,,,
+AIRPLAN,NORTE,,,,,,,
+ALICO,NORTE,,,,,,,
+NEW STETIC,NORTE,,,,,,,
+C.A MEJIA,NORTE,,,,,,,
+CONCEPT BPO,NORTE,,,,,,,
+"COMUNIDAD HERMANAS DOMINICAS DE LA PRESENTACIÓN ""CLÍNICA EL ROSARIO""",NORTE,,,,,,,
+COOSANLUIS,NORTE,,,,,,,
+HOSPITAL PABLO TOBÓN URIBE,NORTE,,,,,,,
+MEDIPIEL,NORTE,,,,,,,
+MAQUILA INTERNACIONAL DE CONFECCION - MIC,NORTE,,,,,,,
+SIMEX,NORTE,,,,,,,
+VISIONAMOS,NORTE,,,,,,,
+COLEGIO MAYOR ANTIOQUIA,NORTE,,,,,,,
+ABC CORPORATION,NORTE,,,,,,,
+BOTERO SOTO,NORTE,,,,,,,
+LABORATORIOS MEDIFARMA,NORTE,,,,,,,
+SOCODA,NORTE,,,,,,,
+TELEANTIOQUIA,NORTE,,,,,,,
+AURALAC,NORTE,,,C,,,,
+DIALSA (DISLICORES),NORTE,,,C,,,,
+TECNOQUIMICAS,SUR,INDUSTRIA,KATHE GERENA,A,ALTO,POSITIVA,"1. Continuidad de las plantas y proteger entornos OT ( Asegurar que nada critico falle)
+* Segmentacion IT - OT
+*Control e inventario de equipos OT, visibilidad, Necesitan proteger su propiedad intelectual. (Claroty)
+2. Estrategia Multinube:
+* Proteger datos criticos, controlar costos y crecimiento cloud y ayudar a tener mayor visibilidad en el crecimiento seguro. 
+*Poco cocnocimiento en nubes como oracle y AWS.
+3. Estrategia de seguridad del dato
+4. Hablar de beneficios del TAM",
+UNIVERSIDAD AUTONOMA DE OCCIDENTE,SUR,EDUCACION,KATHE GERENA,A,MEDIO,POSITIVA,"OBJETIVO ESTRATEGICO UAO:
+Interoperabilidad, Campus Híbrido, Visibilidad, control y Gobernanza.
+
+ Ciberseguridad: El habilitador de la ""Interoperabilidad Segura""
+Observabilidad: La clave para la ""Gestión Institucional y Bienestar
+Infraestructura TI: Soporte para el ""Campus Híbrido"" y ""Gobernanza de Datos",1. Reunión con el SISOy con el Diretor de Infra para revisar estartegia desglosada por cada item mencionado
+CIAT,SUR,INDUSTRIA,KATHE GERENA,A,MEDIO,NEUTRAL,"Gestión de Big Data de clima, suelos y genética. Protección de la propiedad intelectual de las semillas. 
+Garantizar la integridad y seguridad de los datos de investigación (genética, clima, etc.) y cumple con la política de datos abiertos de CGIAR.",
+COMFANDI,SUR,SEGUROS,KATHE GERENA,B,BAJO,NEUTRAL,"En Diciembre 2026 se vence el contrato de seguridad gestionada con Claro, aprox se debe de contemplar el cambio de 517 equipos. Oportunidad con Extreme",
+BANCO MUNDO MUJER,SUR,FINANCIERO,KATHE GERENA,B,BAJO,NEUTRAL,,
+UNIVERSIDAD SANTIAGO DE CALI,SUR,EDUCACION,KATHE GERENA,A,ALTO,POSITIVA,"Esrategia de Datos, protección nube",
+CARTONES AMERICA,SUR,MANUFACTURA,MELISSA CAMPUZANO CARDONA,A,ALTO,POSITIVA,"1. Fortalecer la protección de datos industriales y de clientes
+2. Integrar IA en la cadena de suministro para trazabilidad y reducción de costos.
+3. Capacitar al personal
+4. Estrategia OT (Sistemas dispersos en varias plantas)
+5. Implementar sistemas de monitoreo en tiempo real con inteligencia artificial para detección temprana de amenazas.
+6. Integración de plataformas digitales que unifiquen operaciones, logística y gestión de clientes.
+7. Revisión semestral de la base instalada y mejora contante.","1. Revisar el estado del RoadMap y actualizarlo para presentar al cliente
+2. Revisar junto con Fortinet todas las tecnologías que el cliente tiene, buscando optimización 
+3. Retomar assesment de OT y dar fuertemente continuidad"
+BANCO W,SUR,FINANCIERO,MELISSA CAMPUZANO CARDONA,A,ALTO,POSITIVA,"1.Mantener la relación con los diferentes equipos del Banco, tratar de llegar más arriba a la dirección para tener cercanía con la Junta que toma decisiones finales
+2. Apostarle a un diseño más ajustado y competitivo, una vez lancen el nuevo proceso","1. Se programó un cena con las diferentes áreas del Banco - Jueves 12 febrero para revisar los pasos a seguir, luego de declarado decierto el proceso.
+2. Tomar acción para comenzar a diseñar el nuevo modelo y buscar el cierre del negocio"
+JGB,SUR,QUÍMICO - FARMACÉUTICO,MELISSA CAMPUZANO CARDONA,A,ALTO,POSITIVA,"La cuenta la he venido recuperando, con temas de switches, APs y el año pasado se vendió servicios de CSOC con Lumu para todo el tema de monitoreo de RED y se logró renovar en 2025.
+Hemos avanzado con la arquitectura por capas, en este momento tenemos pendiente presentar visualmente el RoadMap de seguridad con el plan de acción a corto, mediano y largo plazo. 
+Ya entregamos presupuesto 2026 para la continuidad de los proyectos 2026 muy en línea con estrategia SASE, iniciando por ZTNA – SWG y CASB para aplicativos.","Es una cuenta muy Fortinet pero vale la pena revisar también este año temas de:
+1. Observabilidad2. Pam
+3. Protección correo electrónico
+4. EPP
+5. DLP"
+SOCIEDAD PORTUARIA DE BUENAVENTURA,SUR,TRANSPORTE Y LOGÍSTICA,MELISSA CAMPUZANO CARDONA,A,ALTO,POSITIVA,"1. Terminar de cerrar la oportunidad del servicio de SOC con Gamma Ingenieros en Q1
+2. Retomar el RoadMap de seguridad que se planteó posterior a la presentación de la arquitectura por capas
+3. Asegurar que los servicios de soporte y gestión 7x24 puedan ser ofrecidos por nosotros","1. Tenemos programado un almuerzo para la primera semana de febrero 2026
+2. Se programará una sesión con el ingeniero para dar continuidad al roadmap"
+UNIVERSIDAD NACIONAL DE PALMIRA,SUR,EDUCACIÓN,MELISSA CAMPUZANO CARDONA,A,ALTO,POSITIVA,"1. Protección de datos sensibles  
+
+2. Investigación segura  
+
+3. Infraestructura híbrida  
+
+4. Acceso remoto seguro  
+
+5. Capacitación en ciberseguridad  
+
+6. Continuidad operativa","Para dar inicio a este plan tengo agendada una reunión éste viernes 29 de enero de 2026 junto con Néstor Rocha
+1. Ofrecer EDR/MDR para blindar endpoints y servidores, garantizando cumplimiento normativo.
+2. Proponer soluciones de backup y cifrado para proteger propiedad intelectual y proyectos de investigación.
+3. Presentar una estrategia de seguridad que cubra tanto sistemas modernos como legados, con monitoreo centralizado.
+ 4. Integrar MFA y monitoreo de accesos para plataformas virtuales y sistemas administrativos.
+5. Incluir programas de formación para estudiantes y docentes, reduciendo riesgos de phishing y malware.
+6. Complementar con planes de recuperación ante desastres para asegurar que matrícula, pagos y clases nunca se detengan."
+INSTITUTO CIEGOS Y SORDOS,,ENTIDAD SIN ÁNIMO DE LUCRO,MELISSA CAMPUZANO CARDONA,A,ALTO,POSITIVA,"1. Protección de datos sensibles
+2. Conciencia y capacitación al personal
+3. Acceso remoto y telemedicina
+4. Infraestructura limitada
+5. Clasificación de información y DLP","Se está buscando una agenda para dar inicio al año y revisar los proyectos 2026
+1. Se revisará Dolor: Manejo de historias clínicas y datos personales de niños y familias.
+2. Dolor: Riesgo de phishing y errores humanos, por eso propondré programa de capacitación y sensibilización al usuario.
+3. Dolor: Riesgo en plataformas virtuales y credenciales expuestas.Para esto quiero comenzar hablarles de Integrar autenticación multifactor (MFA) y monitoreo continuo de accesos.
+4. Dolor: Presupuesto ajustado y equipos posiblemente desactualizados. Por lo que debemos de presentar soluciones costo efectivas y escalables, con licenciamiento flexible, dejándoles este mensaje ""“Seguridad avanzada sin necesidad de grandes inversiones en personal o infraestructura.”"
+COEXITO,,AUTOMOTRÍZ,MELISSA CAMPUZANO CARDONA,A,MEDIO,POSITIVA,"1. Protección de Datos de clientes y transacciones 
+
+2. Infraestructura distribuida y heterogénea
+Tienen una red nacional de centros de servicio y plataformas de comercio electrónico.
+
+3. Continuidad Operativa (Su promesa comercial es “operación continua y rentable”)
+
+4. Conciencia al personal
+Miles de empleados en diferentes sedes con distintos niveles de conocimiento digital","Ya se tuvo una primera sesión con el cliente, es una cuenta nueva asignada que puedo explotar y desarrollar grandemente entre este 2026 y el 2027.
+*Ya tengo agenda para el martes 3 febrero revisar todos estos dolores.
+1. Dolor: riesgo de robo de datos, fraude digital y ataques a sistemas de facturación y pagos electrónicos.
+2. Dolor: múltiples puntos de acceso que pueden ser vulnerables, con dificultad para tener visibilidad centralizada de toda la operación.
+3. Dolor: un ataque de ransomware podría paralizar logística, inventarios y servicios de diagnóstico, afectando directamente la reputación y la confianza del cliente.
+4. Dolor: alta exposición a ataques de phishing y errores humanos que pueden abrir puertas a amenazas."
+USB,,EDUCACIÓN,MELISSA CAMPUZANO CARDONA,A,ALTO,POSITIVA,,
+ALCALDÍA DE CANDELARIA,,GOBIERNO,MELISSA CAMPUZANO CARDONA,C,MEDIO,POSITIVA,"Retos de infraestructura obsoleta, fragmentación de sistemas y protección de datos sensibles, lo que abre la puerta a una estrategia de ciberseguridad que combine tecnología moderna, capacitación y gobernanza digital.",1. Visita con preventa para revisar arquitectura y entender muy bien el alcance de los acuerdos marco interadministrativos que actualmente tienen.
+AQUAOCCIDENTE,,,,C,,,,
+HARINERA DEL VALLE,,,,B,,,"Proyectos este año:
+1. Renovación y Compra Switches Abril y Agosto
+2. Herramienta de Gestion de vulnerabilidades
+3. Proteccion de IA
+4. Protección de datos académicos y administrativos","1. Estoy buscando un espacio para revisar cómo quiere trabajar estas oportunidades
+2. Con Tenable venimos trabajando la cuenta desde el año pasado, se que ha estado escuchando Vicarius pero quiero que retomemos con fabricante para ofrecerla.
+3. Se tiene una reunión agendada para el miércoles 4 de febrero con David Ortiz donde presentaremos la estrategia de ciberseguridad para la IA
+4. Actualmente lo único que hacen son backups local, no tienen 3,2,1  no tienen ninguna estrategia de protección de datos, punto a revisar"
+COLOMBINA,SUR,,,B,,,,
+FANALCA,SUR,,,B,,,,
+PINTURAS ALGRECO,SUR,FABRICACIÓN DE PRODUCTOS QUÍMICOS Y RECUBRIMIENTOS,MELISSA CAMPUZANO CARDONA,B,MEDIO,POSITIVA,Es un cliente para,
+SUPRAPACK,SUR,,,B,,,,
+EMCALI,SUR,SERVICIOS,MELISSA CAMPUZANO CARDONA,B,BAJO,NEUTRAL,,
