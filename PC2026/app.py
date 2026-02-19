@@ -1,18 +1,49 @@
 import pandas as pd
 import streamlit as st
+import gspread
+from google.oauth2.service_account import Credentials
 import plotly.express as px
 import requests
 import json
+from streamlit_autorefresh import st_autorefresh
+st_autorefresh(interval=60000)
 
+
+#st.experimental_rerun()
 st.set_page_config(page_title="Dashboard Comercial 2026", layout="wide")
 
 # ---------- Carga de datos ----------
 SHEET_ID = "1Io07Ah3IWImvzHJLQcR_fZ22MpCFFwW0"
 SHEET_URL = f"https://docs.google.com/spreadsheets/d/{SHEET_ID}/export?format=xlsx"
 
-@st.cache_data(ttl=600)  # Cache por 10 minutos
+@st.cache_data(ttl=60)  # se actualiza cada 60 segundos
 def load_data():
-    try:
+    scope = [
+        "https://www.googleapis.com/auth/spreadsheets.readonly",
+        "https://www.googleapis.com/auth/drive.readonly",
+    ]
+
+    creds = Credentials.from_service_account_file(
+        "credentials.json",
+        scopes=scope,
+    )
+
+    client = gspread.authorize(creds)
+
+    
+    spreadsheet = client.open("PLAN DE CUENTAS Y HEATMAP 2026")
+
+    clientes = pd.DataFrame(
+        spreadsheet.worksheet("clientes").get_all_records()
+    )
+
+    oportunidades = pd.DataFrame(
+        spreadsheet.worksheet("oportunidades").get_all_records()
+    )
+
+    return clientes, oportunidades
+
+'''    try:
         # Intentar cargar desde Google Sheets
         xls = pd.ExcelFile(SHEET_URL)
         clientes = pd.read_excel(xls, "clientes")
@@ -30,7 +61,7 @@ def load_data():
             clientes = pd.read_csv("clientes_2026.csv")
             oportunidades = pd.read_csv("oportunidades_2026.csv")
             return clientes, oportunidades
-
+'''
 clientes, oportunidades = load_data()
 
 # ---------- Normalización ----------
