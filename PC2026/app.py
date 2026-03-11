@@ -87,7 +87,35 @@ page_modules = {
     "asistente": asistente,
 }
 
-st.title("Plan de Cuentas & Heatmap 2026")
-
+# ---------------------------------------------------------------------------
+# Header sticky (permanece visible al hacer scroll)
+# ---------------------------------------------------------------------------
 page_key = PAGES[selected]
+page_label = [k for k, v in PAGES.items() if v == page_key][0]
+
+st.markdown(
+    f"""
+    <div class="sticky-header">
+        <h2 style="margin:0; padding:0;">{page_label}</h2>
+    </div>
+    <style>
+    .sticky-header {{
+        position: sticky;
+        top: 0;
+        z-index: 999;
+        background: var(--background-color, #0e1117);
+        padding: 0.75rem 0 0.5rem 0;
+        border-bottom: 1px solid rgba(250,250,250,0.1);
+    }}
+    /* Soporte para tema claro */
+    @media (prefers-color-scheme: light) {{
+        .sticky-header {{
+            background: var(--background-color, #ffffff);
+        }}
+    }}
+    </style>
+    """,
+    unsafe_allow_html=True,
+)
+
 page_modules[page_key].render(data)

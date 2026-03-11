@@ -277,7 +277,7 @@ def _build_heatmap_matrix_from_bdm_sheets(
     return scores_df, unique
 
 
-@st.cache_data(ttl=120, show_spinner="Cargando datos desde Google Drive...")
+@st.cache_data(ttl=300, show_spinner="Cargando datos desde Google Drive...")
 def load_dashboard_data(file_id: str | None = None) -> DashboardData:
     """Pipeline completo: descarga Excel -> procesa -> modelo unificado."""
     from modules.config import SHEET_ID
