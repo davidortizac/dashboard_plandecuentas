@@ -1,4 +1,11 @@
 venv/
+.venv/
 __pycache__/
 *.pyc
 .env
+credentials.json
+credentials.json;C/
+*.xlsx
+_data_cache.*
+.claude/
+OLD/
