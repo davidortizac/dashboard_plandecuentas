@@ -82,23 +82,28 @@ SCOPES = [
 SHEET_ID = get_setting("PC2026_SHEET_ID", "1Io07Ah3IWImvzHJLQcR_fZ22MpCFFwW0")
 
 # ---------------------------------------------------------------------------
-# LLM — Proveedor por defecto y configuración
+# LLM — Proveedores
 # ---------------------------------------------------------------------------
-# Valores posibles para PC2026_LLM_PROVIDER: "Ollama (Local)", "OpenAI", "Google Gemini"
-LLM_PROVIDERS = ["Ollama (Local)", "OpenAI", "Google Gemini"]
-LLM_PROVIDER_DEFAULT = get_setting("PC2026_LLM_PROVIDER", "Ollama (Local)")
+# Valores posibles para PC2026_LLM_PROVIDER: "Mistral", "DeepSeek", "Google AI Studio"
+LLM_PROVIDERS = ["Mistral", "DeepSeek", "Google AI Studio"]
+LLM_PROVIDER_DEFAULT = get_setting("PC2026_LLM_PROVIDER", "Mistral")
 
-# Ollama
+# Ollama — URL y timeout compartidos
 OLLAMA_URL = get_setting(
     "PC2026_OLLAMA_URL", "http://host.docker.internal:11434/api/generate"
 )
-OLLAMA_TIMEOUT = float(get_setting("PC2026_OLLAMA_TIMEOUT_S", "60"))
-OLLAMA_MODEL_DEFAULT = get_setting("PC2026_OLLAMA_MODEL", "ministral-3:8b")
+OLLAMA_TIMEOUT = float(get_setting("PC2026_OLLAMA_TIMEOUT_S", "120"))
 
-# OpenAI
-OPENAI_API_KEY_DEFAULT = get_setting("PC2026_OPENAI_API_KEY", "")
-OPENAI_MODEL_DEFAULT = get_setting("PC2026_OPENAI_MODEL", "gpt-4o-mini")
+# Modelos por proveedor
+OLLAMA_MODEL_MISTRAL = get_setting("PC2026_OLLAMA_MODEL_MISTRAL", "ministral-3:8b")
+OLLAMA_MODEL_DEEPSEEK = get_setting("PC2026_OLLAMA_MODEL_DEEPSEEK", "deepseek-r1:8b")
 
-# Gemini
-GEMINI_API_KEY_DEFAULT = get_setting("PC2026_GEMINI_API_KEY", "")
+# num_ctx: El contexto del Plan de Cuentas es ~75K tokens.
+# ministral-3:8b soporta 256K — 131072 cubre el contexto completo con margen.
+OLLAMA_NUM_CTX = int(get_setting("PC2026_OLLAMA_NUM_CTX", "131072"))
+
+# ---------------------------------------------------------------------------
+# Google AI Studio (Gemini)
+# ---------------------------------------------------------------------------
+GOOGLE_API_KEY = get_setting("PC2026_GOOGLE_API_KEY", "")
 GEMINI_MODEL_DEFAULT = get_setting("PC2026_GEMINI_MODEL", "gemini-2.5-flash")

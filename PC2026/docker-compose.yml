@@ -1,0 +1,35 @@
+services:
+  pc2026:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: pc2026
+    restart: "no"
+    ports:
+      - "8501:8501"
+    volumes:
+      # Credenciales de Google (nunca al repo)
+      - ./credentials.json:/app/credentials.json:ro
+      # Cache del Excel — persiste entre reinicios para no bajar de Drive cada vez
+      - ./_data_cache.xlsx:/app/_data_cache.xlsx
+    environment:
+      # Ollama — apunta al host donde corre el servidor
+      PC2026_OLLAMA_URL: "http://host.docker.internal:11434/api/generate"
+      PC2026_OLLAMA_TIMEOUT_S: "120"
+      PC2026_OLLAMA_NUM_CTX: "131072"
+      # Modelos por defecto (sobreescribir si el nombre difiere en tu Ollama)
+      PC2026_OLLAMA_MODEL_MISTRAL: "ministral-3:8b"
+      PC2026_OLLAMA_MODEL_DEEPSEEK: "deepseek-r1:8b"
+      PC2026_LLM_PROVIDER: "Mistral"
+      # Google AI Studio — pega tu API key aquí o usa un .env
+      PC2026_GOOGLE_API_KEY: ""
+      PC2026_GEMINI_MODEL: "gemini-2.5-flash"
+    # Permite acceder a host.docker.internal en Linux (Docker Desktop lo resuelve solo en Windows/Mac)
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8501/_stcore/health')"]
+      interval: 30s
+      timeout: 10s
+      start_period: 20s
+      retries: 3

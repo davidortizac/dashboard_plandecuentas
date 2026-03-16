@@ -16,7 +16,7 @@ def render(data: DashboardData):
     # --- KPIs ---
     k1, k2, k3, k4, k5 = st.columns(5)
     k1.metric("Total Clientes", data.n_clients)
-    k2.metric("Ejecutivos (BDM)", data.n_bdms)
+    k2.metric("Account Managers (AM)", data.n_bdms)
     k3.metric("Zonas", len(data.zones))
     k4.metric("Sectores", df[data.col_sector].nunique())
 

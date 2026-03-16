@@ -1,5 +1,5 @@
 """
-Pagina: Estrategias BDM — gestión y visualización de estrategias por cuenta.
+Pagina: Estrategias AM — gestión y visualización de estrategias por cuenta.
 Vista centrada en los ejecutivos y sus planes de acción.
 """
 from __future__ import annotations
@@ -25,7 +25,7 @@ def render(data: DashboardData):
 
     # --- Selector de ejecutivo ---
     bdm_options = ["Todos"] + data.bdm_names
-    selected_bdm = st.selectbox("Ejecutivo / BDM", bdm_options, key="strat_bdm")
+    selected_bdm = st.selectbox("Account Manager", bdm_options, key="strat_bdm")
 
     filtered = df if selected_bdm == "Todos" else df[df[data.col_comercial] == selected_bdm]
 
@@ -45,9 +45,9 @@ def render(data: DashboardData):
 
     st.divider()
 
-    # --- Cobertura de estrategias por BDM ---
+    # --- Cobertura de estrategias por AM ---
     if selected_bdm == "Todos" and strat_col:
-        st.subheader("Cobertura de Estrategias por Ejecutivo")
+        st.subheader("Cobertura de Estrategias por Account Manager")
         strat_by_bdm = (
             df.groupby(data.col_comercial)
             .agg(

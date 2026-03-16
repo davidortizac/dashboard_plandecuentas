@@ -15,15 +15,15 @@ import requests
 import streamlit as st
 
 from modules.config import (
-    GEMINI_API_KEY_DEFAULT,
     GEMINI_MODEL_DEFAULT,
+    GOOGLE_API_KEY,
     LLM_PROVIDER_DEFAULT,
     LLM_PROVIDERS,
-    OLLAMA_MODEL_DEFAULT,
+    OLLAMA_MODEL_DEEPSEEK,
+    OLLAMA_MODEL_MISTRAL,
+    OLLAMA_NUM_CTX,
     OLLAMA_TIMEOUT,
     OLLAMA_URL,
-    OPENAI_API_KEY_DEFAULT,
-    OPENAI_MODEL_DEFAULT,
 )
 from modules.data_model import DashboardData
 
@@ -78,7 +78,7 @@ def _build_context(data: DashboardData) -> str:
     # =====================================================================
     lines.append("=== RESUMEN GENERAL DEL PLAN DE CUENTAS 2026 ===")
     lines.append(f"Total clientes: {data.n_clients}")
-    lines.append(f"Total ejecutivos (BDM): {data.n_bdms}")
+    lines.append(f"Total Account Managers (AM): {data.n_bdms}")
     lines.append(f"Zonas: {', '.join(data.zones)}")
     lines.append(f"Sectores: {', '.join(data.sectors)}")
     lines.append(f"Tipos de cuenta: {', '.join(data.account_types)}")
@@ -101,15 +101,15 @@ def _build_context(data: DashboardData) -> str:
         # Sectores en esta zona
         sect_counts = z_df[data.col_sector].value_counts()
         lines.append(f"    Sectores: {', '.join(f'{s}({c})' for s, c in sect_counts.items())}")
-        # BDMs en esta zona
+        # AMs en esta zona
         bdm_counts = z_df[data.col_comercial].value_counts()
-        lines.append(f"    Ejecutivos: {', '.join(f'{b}({c})' for b, c in bdm_counts.items())}")
+        lines.append(f"    AMs: {', '.join(f'{b}({c})' for b, c in bdm_counts.items())}")
     lines.append("")
 
     # =====================================================================
-    # 3. EJECUTIVOS (BDM) — detalle completo
+    # 3. ACCOUNT MANAGERS (AM) — detalle completo
     # =====================================================================
-    lines.append("=== EJECUTIVOS (BDM) — DETALLE ===")
+    lines.append("=== ACCOUNT MANAGERS (AM) — DETALLE ===")
     for bdm in data.bdm_names:
         b_df = df[df[data.col_comercial] == bdm]
         zona_list = b_df[data.col_zona].dropna().unique().tolist()
@@ -125,7 +125,7 @@ def _build_context(data: DashboardData) -> str:
         if col_strat:
             con = b_df[col_strat].notna().sum()
             lines.append(f"    Estrategias definidas: {con}/{len(b_df)} ({int(con/max(len(b_df),1)*100)}%)")
-        # Clientes de este BDM
+        # Clientes de este AM
         lines.append(f"    Clientes: {', '.join(b_df[data.col_cliente].dropna().astype(str).tolist())}")
     lines.append("")
 
@@ -308,7 +308,7 @@ def _build_context(data: DashboardData) -> str:
         # Datos básicos
         for label, col in [
             ("Zona", data.col_zona), ("Sector", data.col_sector),
-            ("Tipo", data.col_tipo), ("BDM", data.col_comercial),
+            ("Tipo", data.col_tipo), ("AM", data.col_comercial),
         ]:
             val = _safe(row.get(col))
             if val:
@@ -389,9 +389,106 @@ def _build_context(data: DashboardData) -> str:
     return "\n".join(lines)
 
 
+@st.cache_data(ttl=300, show_spinner="Construyendo contexto resumido...")
+def _build_context_compact(data: DashboardData) -> str:
+    """Contexto resumido: solo estadísticas agregadas, sin ficha individual por cliente.
+    Apropiado para modelos con ventana de contexto reducida (~12K tokens).
+    """
+    df = data.master
+    prod_cols = [c for c in data.heatmap_product_cols if c in df.columns]
+    svc_cols = [c for c in data.heatmap_service_cols if c in df.columns]
+    lines: list[str] = []
+
+    col_nivel = col_valor = col_strat = None
+    for c in df.columns:
+        cl = c.lower().strip()
+        if "nivel" in cl and "relacion" in cl:
+            col_nivel = c
+        elif "valorizacion" in cl or "valoracion" in cl:
+            col_valor = c
+        elif cl == "estrategia":
+            col_strat = c
+
+    lines.append("=== RESUMEN GENERAL DEL PLAN DE CUENTAS 2026 ===")
+    lines.append(f"Total clientes: {data.n_clients} | AMs: {data.n_bdms}")
+    lines.append(f"Zonas: {', '.join(data.zones)}")
+    lines.append(f"Sectores: {', '.join(data.sectors)}")
+    lines.append(f"Tipos de cuenta: {', '.join(data.account_types)}")
+    if "score_heatmap" in df.columns:
+        lines.append(f"Score heatmap — prom: {df['score_heatmap'].mean():.1f} | max: {df['score_heatmap'].max()} | min: {df['score_heatmap'].min()}")
+        lines.append(f"Cobertura promedio: {df['cobertura_productos'].mean():.1f} soluciones activas por cliente")
+    lines.append("")
+
+    lines.append("=== CLIENTES POR ZONA ===")
+    for zona in data.zones:
+        z_df = df[df[data.col_zona] == zona]
+        sect_counts = z_df[data.col_sector].value_counts()
+        bdm_counts = z_df[data.col_comercial].value_counts()
+        lines.append(f"  {zona}: {len(z_df)} clientes | score prom: {z_df['score_heatmap'].mean():.1f}")
+        lines.append(f"    Sectores: {', '.join(f'{s}({c})' for s, c in sect_counts.items())}")
+        lines.append(f"    AMs: {', '.join(f'{b}({c})' for b, c in bdm_counts.items())}")
+    lines.append("")
+
+    lines.append("=== ACCOUNT MANAGERS (AM) ===")
+    for bdm in data.bdm_names:
+        b_df = df[df[data.col_comercial] == bdm]
+        lines.append(f"  {bdm}: {len(b_df)} clientes | score prom: {b_df['score_heatmap'].mean():.1f} | cobertura prom: {b_df['cobertura_productos'].mean():.1f}")
+        lines.append(f"    Clientes: {', '.join(b_df[data.col_cliente].dropna().astype(str).tolist())}")
+    lines.append("")
+
+    lines.append("=== SECTORES ===")
+    for sector, count in df[data.col_sector].value_counts().items():
+        s_df = df[df[data.col_sector] == sector]
+        lines.append(f"  {sector}: {count} clientes | score prom: {s_df['score_heatmap'].mean():.1f}")
+    lines.append("")
+
+    if "score_heatmap" in df.columns:
+        q75 = df["score_heatmap"].quantile(0.75)
+        q25 = df["score_heatmap"].quantile(0.25)
+        max_cob = max(df["cobertura_productos"].max(), 1)
+
+        def _sem(row):
+            s, c = row.get("score_heatmap", 0), row.get("cobertura_productos", 0)
+            if s >= q75 and c >= max_cob * 0.3:
+                return "Verde"
+            elif s >= q25 or c >= max_cob * 0.1:
+                return "Amarillo"
+            return "Rojo"
+
+        sem = df.apply(_sem, axis=1)
+        lines.append("=== SEMÁFORO ===")
+        for color in ["Verde", "Amarillo", "Rojo"]:
+            count = int((sem == color).sum())
+            lines.append(f"  {color}: {count} clientes")
+        lines.append("")
+
+    if prod_cols:
+        lines.append("=== ADOPCIÓN DE PRODUCTOS ===")
+        for sol, cnt in sorted({c: int((df[c] > 0).sum()) for c in prod_cols}.items(), key=lambda x: -x[1]):
+            lines.append(f"  {sol}: {cnt} clientes ({int(cnt/max(len(df),1)*100)}%)")
+        lines.append("")
+
+        lines.append("=== ADOPCIÓN DE SERVICIOS ===")
+        for sol, cnt in sorted({c: int((df[c] > 0).sum()) for c in svc_cols}.items(), key=lambda x: -x[1]):
+            lines.append(f"  {sol}: {cnt} clientes ({int(cnt/max(len(df),1)*100)}%)")
+        lines.append("")
+
+    if col_strat:
+        with_strat = int(df[col_strat].notna().sum())
+        lines.append("=== ESTRATEGIAS ===")
+        lines.append(f"  Con estrategia: {with_strat}/{len(df)} ({int(with_strat/max(len(df),1)*100)}%)")
+        for bdm in data.bdm_names:
+            b_df = df[df[data.col_comercial] == bdm]
+            con = int(b_df[col_strat].notna().sum())
+            lines.append(f"  {bdm}: {con}/{len(b_df)}")
+        lines.append("")
+
+    return "\n".join(lines)
+
+
 SYSTEM_PROMPT = """Eres un analista de datos del equipo de Desarrollo de Negocios de Gamma (ciberseguridad).
 
-CONTEXTO: Tienes acceso al Plan de Cuentas y Heatmap 2026 con datos reales de clientes, ejecutivos (BDMs), zonas, sectores, productos/servicios y estrategias.
+CONTEXTO: Tienes acceso al Plan de Cuentas y Heatmap 2026 con datos reales de clientes, Account Managers (AM), zonas, sectores, productos/servicios y estrategias.
 
 REGLAS ESTRICTAS — DEBES SEGUIRLAS SIEMPRE:
 1. SOLO puedes usar la información que aparece en la sección "DATOS DEL PLAN DE CUENTAS 2026" de abajo.
@@ -399,7 +496,7 @@ REGLAS ESTRICTAS — DEBES SEGUIRLAS SIEMPRE:
 3. Si la pregunta requiere información que NO está en los datos, responde: "No tengo esa información en los datos del Plan de Cuentas."
 4. NO uses conocimiento general ni datos externos. Tu ÚNICA fuente de verdad son los datos proporcionados abajo.
 5. Siempre cita cifras exactas de los datos (scores, cantidades, porcentajes).
-6. Cuando menciones un cliente, incluye su ejecutivo (BDM), zona y sector tal como aparecen en los datos.
+6. Cuando menciones un cliente, incluye su Account Manager (AM), zona y sector tal como aparecen en los datos.
 7. Responde en español, de forma clara y estructurada.
 8. Si te piden comparar o analizar, usa SOLO los números de los datos proporcionados.
 
@@ -423,7 +520,7 @@ def _query_ollama(system: str, user_msg: str, model: str, url: str, placeholder)
                 {"role": "user", "content": user_msg},
             ],
             "stream": True,
-            "options": {"temperature": 0.2, "num_predict": 4096},
+            "options": {"temperature": 0.2, "num_predict": 4096, "num_ctx": OLLAMA_NUM_CTX},
         },
         stream=True,
         timeout=(5, OLLAMA_TIMEOUT),
@@ -482,23 +579,43 @@ def _query_openai(system: str, user_msg: str, model: str, api_key: str, placehol
 
 
 def _query_gemini(system: str, user_msg: str, model: str, api_key: str, placeholder) -> str:
-    """Envía query a Google Gemini API con system instruction separada."""
-    url = f"https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent"
+    """Envía query a Google AI Studio con streaming SSE y system instruction separada."""
+    url = f"https://generativelanguage.googleapis.com/v1beta/models/{model}:streamGenerateContent"
     r = requests.post(
         url,
-        params={"key": api_key},
+        params={"key": api_key, "alt": "sse"},
         json={
             "system_instruction": {"parts": [{"text": system}]},
             "contents": [{"parts": [{"text": user_msg}]}],
-            "generationConfig": {"temperature": 0.2, "maxOutputTokens": 4096},
+            "generationConfig": {"temperature": 0.2, "maxOutputTokens": 8192},
         },
-        timeout=120,
+        stream=True,
+        timeout=(10, 180),
     )
     r.raise_for_status()
-    resp = r.json()
-    text = resp.get("candidates", [{}])[0].get("content", {}).get("parts", [{}])[0].get("text", "")
-    placeholder.markdown(text)
-    return text
+    full_response = ""
+    for line in r.iter_lines():
+        if not line:
+            continue
+        text = line.decode("utf-8")
+        if text.startswith("data: "):
+            text = text[6:]
+        if text.strip() in ("[DONE]", ""):
+            continue
+        try:
+            chunk_data = json.loads(text)
+            chunk = (
+                chunk_data.get("candidates", [{}])[0]
+                .get("content", {})
+                .get("parts", [{}])[0]
+                .get("text", "")
+            )
+            if chunk:
+                full_response += chunk
+                placeholder.markdown(full_response + "▌")
+        except (json.JSONDecodeError, IndexError, KeyError):
+            continue
+    return full_response
 
 
 def _get_ollama_models(url: str) -> list[str]:
@@ -512,13 +629,34 @@ def _get_ollama_models(url: str) -> list[str]:
     return []
 
 
+def _get_gemini_models(api_key: str) -> list[str]:
+    """Obtiene los modelos Gemini disponibles en Google AI Studio para la API key dada."""
+    try:
+        r = requests.get(
+            "https://generativelanguage.googleapis.com/v1beta/models",
+            params={"key": api_key},
+            timeout=5,
+        )
+        if r.status_code == 200:
+            models = r.json().get("models", [])
+            # Solo modelos generateContent (no embeddings, etc.)
+            return sorted(
+                m["name"].replace("models/", "")
+                for m in models
+                if "generateContent" in m.get("supportedGenerationMethods", [])
+            )
+    except Exception:
+        pass
+    return []
+
+
 # ---------------------------------------------------------------------------
 # Render
 # ---------------------------------------------------------------------------
 
 def render(data: DashboardData):
     # --- Configuración de conexión ---
-    with st.expander("⚙️ Configuración de conexión LLM", expanded=False):
+    with st.expander("⚙️ Configuración del Asistente IA", expanded=False):
         default_idx = LLM_PROVIDERS.index(LLM_PROVIDER_DEFAULT) if LLM_PROVIDER_DEFAULT in LLM_PROVIDERS else 0
         provider = st.selectbox(
             "Proveedor",
@@ -527,7 +665,9 @@ def render(data: DashboardData):
             key="ai_provider",
         )
 
-        if provider == "Ollama (Local)":
+        # --- Ollama (Mistral / DeepSeek) ---
+        if provider in ("Mistral", "DeepSeek"):
+            default_model = OLLAMA_MODEL_MISTRAL if provider == "Mistral" else OLLAMA_MODEL_DEEPSEEK
             col_url, col_model = st.columns([2, 1])
             with col_url:
                 ollama_url = st.text_input(
@@ -539,55 +679,97 @@ def render(data: DashboardData):
             with col_model:
                 available_models = _get_ollama_models(ollama_url)
                 if available_models:
-                    default_idx = 0
+                    sel_idx = 0
                     for i, m in enumerate(available_models):
-                        if OLLAMA_MODEL_DEFAULT in m:
-                            default_idx = i
+                        if default_model.split(":")[0] in m:
+                            sel_idx = i
                             break
                     model_name = st.selectbox(
-                        "Modelo", available_models, index=default_idx, key="ai_model_select",
+                        "Modelo", available_models, index=sel_idx, key="ai_model_select",
                     )
-                    st.success(f"Conectado — {len(available_models)} modelos")
+                    st.success(f"Conectado — {len(available_models)} modelos disponibles")
                 else:
-                    model_name = st.text_input("Modelo", value=OLLAMA_MODEL_DEFAULT, key="ai_model_fallback")
+                    model_name = st.text_input("Modelo", value=default_model, key="ai_model_fallback")
                     st.error("Sin conexión a Ollama")
+            google_api_key = ""
+            gemini_model = ""
 
-        elif provider == "OpenAI":
-            col_key, col_model = st.columns([2, 1])
-            with col_key:
-                api_key = st.text_input("API Key", value=OPENAI_API_KEY_DEFAULT, type="password", key="ai_openai_key")
-            with col_model:
-                openai_models = ["gpt-4o-mini", "gpt-4o", "gpt-4-turbo", "gpt-3.5-turbo"]
-                oi_idx = openai_models.index(OPENAI_MODEL_DEFAULT) if OPENAI_MODEL_DEFAULT in openai_models else 0
-                model_name = st.selectbox(
-                    "Modelo",
-                    openai_models,
-                    index=oi_idx,
-                    key="ai_openai_model",
+        # --- Google AI Studio (Gemini) ---
+        else:
+            google_api_key = st.text_input(
+                "Google AI Studio API Key",
+                value=GOOGLE_API_KEY,
+                type="password",
+                key="ai_google_key",
+                help="Obtén tu API key en aistudio.google.com",
+            )
+
+            if google_api_key:
+                available_gemini = _get_gemini_models(google_api_key)
+                if available_gemini:
+                    # Pre-seleccionar el modelo por defecto si está en la lista
+                    gem_idx = next(
+                        (i for i, m in enumerate(available_gemini) if GEMINI_MODEL_DEFAULT in m),
+                        0,
+                    )
+                    gemini_model = st.selectbox(
+                        "Modelo Gemini",
+                        available_gemini,
+                        index=gem_idx,
+                        key="ai_gemini_model_select",
+                    )
+                    st.success(f"Conectado — {len(available_gemini)} modelos disponibles")
+                else:
+                    gemini_model = st.text_input(
+                        "Modelo Gemini (escribe el nombre)",
+                        value=GEMINI_MODEL_DEFAULT,
+                        key="ai_gemini_model_fallback",
+                        help="Ej: gemini-2.5-flash, gemini-1.5-pro",
+                    )
+                    st.warning("No se pudo listar los modelos — verifica la API key o escribe el nombre del modelo")
+            else:
+                gemini_model = st.text_input(
+                    "Modelo Gemini",
+                    value=GEMINI_MODEL_DEFAULT,
+                    key="ai_gemini_model_default",
+                    help="Ingresa primero tu API key para listar modelos disponibles",
+                    disabled=True,
                 )
+                st.warning("Ingresa tu API Key para continuar")
+
+            model_name = gemini_model
             ollama_url = ""
 
-        else:  # Gemini
-            col_key, col_model = st.columns([2, 1])
-            with col_key:
-                api_key = st.text_input("API Key", value=GEMINI_API_KEY_DEFAULT, type="password", key="ai_gemini_key")
-            with col_model:
-                gemini_models = ["gemini-2.0-flash", "gemini-2.0-flash-lite", "gemini-1.5-pro", "gemini-1.5-flash"]
-                gm_idx = gemini_models.index(GEMINI_MODEL_DEFAULT) if GEMINI_MODEL_DEFAULT in gemini_models else 0
-                model_name = st.selectbox(
-                    "Modelo",
-                    gemini_models,
-                    index=gm_idx,
-                    key="ai_gemini_model",
-                )
-            ollama_url = ""
+        # --- Tamaño de contexto ---
+        st.divider()
+        ctx_options = {
+            "Completo — todos los clientes (~75K tokens)": "full",
+            "Resumido — solo estadísticas (~12K tokens)": "compact",
+        }
+        ctx_label = st.radio(
+            "Tamaño de contexto enviado al modelo",
+            list(ctx_options.keys()),
+            index=0,
+            key="ai_ctx_mode",
+            help=(
+                "Completo: incluye la ficha de cada cliente. Recomendado para Gemini y Ollama con num_ctx >= 131072.\n"
+                "Resumido: solo estadísticas agregadas. Útil para modelos con contexto reducido."
+            ),
+        )
+        ctx_mode = ctx_options[ctx_label]
 
-    # Build context (cached globally via st.cache_data, shared across sessions)
-    context = _build_context(data)
+    # Build context according to selected mode
+    if ctx_mode == "compact":
+        context = _build_context_compact(data)
+        ctx_tokens_est = "~12K tokens"
+    else:
+        context = _build_context(data)
+        ctx_tokens_est = "~75K tokens"
 
     st.caption(
         f"Proveedor: **{provider}** | Modelo: **{model_name}** | "
-        f"Contexto: {data.n_clients} clientes, {len(data.heatmap_all_cols)} soluciones"
+        f"Contexto: {data.n_clients} clientes, {len(data.heatmap_all_cols)} soluciones | "
+        f"Modo: **{ctx_mode}** ({ctx_tokens_est})"
     )
 
     st.divider()
@@ -621,18 +803,13 @@ def render(data: DashboardData):
             full_response = ""
 
             try:
-                if provider == "Ollama (Local)":
+                if provider == "Google AI Studio":
+                    if not google_api_key:
+                        placeholder.error("Configura tu API Key de Google AI Studio en el panel de configuración.")
+                        st.stop()
+                    full_response = _query_gemini(system_msg, user_msg, model_name, google_api_key, placeholder)
+                else:
                     full_response = _query_ollama(system_msg, user_msg, model_name, ollama_url, placeholder)
-                elif provider == "OpenAI":
-                    if not api_key:
-                        placeholder.error("Ingresa tu API Key de OpenAI en la configuración.")
-                    else:
-                        full_response = _query_openai(system_msg, user_msg, model_name, api_key, placeholder)
-                else:  # Gemini
-                    if not api_key:
-                        placeholder.error("Ingresa tu API Key de Gemini en la configuración.")
-                    else:
-                        full_response = _query_gemini(system_msg, user_msg, model_name, api_key, placeholder)
 
                 if full_response:
                     placeholder.markdown(full_response)
@@ -648,7 +825,7 @@ def render(data: DashboardData):
             except requests.exceptions.Timeout:
                 placeholder.error("Timeout — el modelo tardó demasiado en responder.")
             except requests.exceptions.HTTPError as e:
-                placeholder.error(f"Error HTTP: {e}")
+                placeholder.error(f"Error HTTP {e.response.status_code}: {e.response.text[:300] if e.response else e}")
             except Exception as e:
                 placeholder.error(f"Error: {e}")
 

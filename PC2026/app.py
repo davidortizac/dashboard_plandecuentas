@@ -50,7 +50,7 @@ except Exception as e:
 # ---------------------------------------------------------------------------
 st.sidebar.title("📊 Plan de Cuentas 2026")
 st.sidebar.caption(
-    f"{data.n_clients} clientes | {data.n_bdms} ejecutivos | {len(data.zones)} zonas"
+    f"{data.n_clients} clientes | {data.n_bdms} AMs | {len(data.zones)} zonas"
 )
 
 PAGES = {

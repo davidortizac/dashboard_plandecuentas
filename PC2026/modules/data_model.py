@@ -9,6 +9,7 @@ Flujo:
 """
 from __future__ import annotations
 
+import unicodedata
 from dataclasses import dataclass, field
 
 import pandas as pd
@@ -92,29 +93,109 @@ def _find_matching_col(df_cols: list[str], target: str) -> str | None:
     return None
 
 
+def _ascii_upper(s: str) -> str:
+    """Normaliza a ASCII mayúsculas para comparación robusta (ignora tildes y mayúsculas)."""
+    return unicodedata.normalize("NFD", s).encode("ascii", "ignore").decode().upper().strip()
+
+
+# Mapa canónico: clave en ASCII-upper → sector normalizado
+_SECTOR_MAP: dict[str, str] = {
+    # Financiero
+    "FINANCIERO": "Financiero",
+    "FINANCIERA": "Financiero",
+    # Gobierno / Público
+    "GOBIERNO": "Gobierno",
+    "SECTOR AMBIENTAL Y PUBLICO": "Gobierno",
+    "ENTIDAD SIN ANIMO DE LUCRO": "Gobierno",
+    # Industria
+    "INDUSTRIA": "Industria",
+    "INDUSTRIA Y COMERCIO": "Industria y Comercio",
+    # Salud
+    "SALUD": "Salud",
+    "BIENESTAR": "Salud",
+    # Educación
+    "EDUCACION": "Educación",
+    # Retail / Comercio
+    "RETAIL": "Retail",
+    "DISTRIBUCION Y COMERCIO": "Distribución y Comercio",
+    "COMERCIO Y LICORES": "Distribución y Comercio",
+    # Servicios
+    "SERVICIOS": "Servicios",
+    "SERVICOS": "Servicios",           # typo
+    "BPO": "BPO",
+    "CONSULTORIA EMPRESARIAL Y DE GESTION": "Consultoría",
+    # Energético
+    "ENERGIA": "Energético",
+    "ENERGETICO": "Energético",
+    # Automotriz
+    "AUTOMOTRIZ": "Automotriz",
+    "AUTORMOTRIZ": "Automotriz",       # typo
+    # Manufactura
+    "MANUFACTURA": "Manufactura",
+    "MANFACTURAS": "Manufactura",      # typo
+    "MANUFACTURA - TEXTIL Y CONFECCION": "Manufactura",
+    # Farmacéutico / Químico
+    "FARMACEUTICO": "Farmacéutico",
+    "FARMACTICO": "Farmacéutico",      # typo
+    "FARMACETICO": "Farmacéutico",     # typo (é en posición distinta)
+    "FARMACEUTICO Y DE COMERCIO": "Farmacéutico",
+    "QUIMICO - FARMACEUTICO": "Farmacéutico",
+    "QUIMICO": "Químico",
+    "FABRICACION DE PRODUCTOS QUIMICOS Y RECUBRIMIENTOS": "Químico",
+    # Agroindustrial
+    "AGROINDUSTRIAL": "Agroindustrial",
+    "AGRONDUSTRIAL": "Agroindustrial", # typo
+    "AGRICOLA": "Agroindustrial",
+    "AGROQUIMICO": "Agroindustrial",
+    # Cooperativo / Solidario
+    "COOPERATIVO": "Cooperativo",
+    "COOPERATIVA": "Cooperativo",
+    "SOLIDARIO (COOOPERATIVAS)": "Cooperativo",  # typo
+    "SOLIDARIO (COOPERATIVAS)": "Cooperativo",
+    "CAJAS DE COMPENSACION": "Cooperativo",
+    # Transporte
+    "TRANSPORTE": "Transporte y Logística",
+    "TRANSPORTE Y LOGISTICA": "Transporte y Logística",
+    "VIAJES Y TRANSPORTES": "Transporte y Logística",
+    "MENSAJERIA Y ENVIOS": "Transporte y Logística",
+    # Seguros
+    "SEGUROS": "Seguros",
+    "ASEGURADORA DE GRUPOS EXEQUIALES": "Seguros",
+    # Industria (variantes)
+    "INDUSTRIAL": "Industria",
+    "SECTOR INDUSTRIAL": "Industria",
+    "INDUSTRIA Y CONSTRUCCION": "Industria",
+    "COMERCIAL-INDUSTRIAL": "Industria",
+    # Consultoría
+    "CONSULTORIA": "Consultoría",
+    # Financiero (variantes compuestas → Financiero como sector principal)
+    "FINANCIERO Y SOLIDARIO": "Financiero",
+    "FINANCIERO  SECTOR DE MICROFINANZAS Y CREDITO ESPECIALIZADO.": "Financiero",
+    # Gobierno (variantes compuestas → Gobierno como sector principal)
+    "GOBIERNO - EDUCACION": "Gobierno",
+    "GOBIERNO - ENERGIA": "Gobierno",
+    "GOBIERNO-FUERZAS MILITARES": "Gobierno",
+    "EDUCACION - GOBIERNO": "Gobierno",
+    "SERVICIOS SOCIALES, SALUD Y EDUCACION": "Gobierno",
+    # Corporativo compuesto → Corporativo
+    "CORPORATIVO - SALUD": "Corporativo",
+    "CORPORATIVO - FINTECH": "Corporativo",
+    # Otros que ya son correctos
+    "CORPORATIVO": "Corporativo",
+    "TEXTIL": "Textil",
+    "ALIMENTOS": "Alimentos",
+    "ENTRETENIMIENTO": "Entretenimiento",
+    "MINERO": "Minero",
+    "CONSTRUCCION": "Construcción",
+    "SIN SECTOR": "Sin Sector",
+}
+
+
 def _normalize_sector(s) -> str:
     if pd.isna(s) or not s:
         return "Sin Sector"
-    s = str(s).strip().upper()
-    # Normalizar variantes comunes
-    mapping = {
-        "FINANCIERO": "Financiero",
-        "GOBIERNO": "Gobierno",
-        "INDUSTRIA": "Industria",
-        "INDUSTRIA Y COMERCIO": "Industria y Comercio",
-        "CORPORATIVO": "Corporativo",
-        "SALUD": "Salud",
-        "EDUCACION": "Educación",
-        "EDUCACIÓN": "Educación",
-        "RETAIL": "Retail",
-        "SERVICIOS": "Servicios",
-        "DISTRIBUCIÓN Y COMERCIO": "Distribución y Comercio",
-        "DISTRIBUCION Y COMERCIO": "Distribución y Comercio",
-    }
-    for key, val in mapping.items():
-        if key in s:
-            return val
-    return str(s).strip().title()
+    key = _ascii_upper(str(s))
+    return _SECTOR_MAP.get(key, str(s).strip().title())
 
 
 def _normalize_comercial(s) -> str:
